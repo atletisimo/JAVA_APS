@@ -1,61 +1,83 @@
+package ispit_august;
 import java.util.*;
-public class TopcinjaStack {
+
+public class StackTopcinja {
 public static void main(String [] args) {
+	ArrayStack<String>crveni=new ArrayStack<String>(100);
+	ArrayStack<String> zeleni=new ArrayStack<String>(100);
+	ArrayStack<String>sini=new ArrayStack<String>(100);
 	Scanner input=new Scanner(System.in);
 	String topcinja=input.nextLine();//R+ G- G+ G+ R+ B- B+ R- G+ R- B- B+ B+ R+
-	ArrayStack<String>crveni=new ArrayStack<String>(100);
-	ArrayStack<String>zeleni=new ArrayStack<String>(100);
-	ArrayStack<String>sini=new ArrayStack<String>(100);
 	StringBuilder izlez=new StringBuilder();
-	String [] t=topcinja.split(" ");//"R+" "G-" "G+" G+ R+ B- B+ R- G+ R- B- B+ B+ R+
+	String [] t=topcinja.split(" ");//"R+" "G-" "G+" "G+" "R+" B- B+ R- G+ R- B- B+ B+ R+
 	int n=0;
 	for(String i:t) {
 		 // ПРОВЕРКА: дали стрингот има барем 2 карактери (боја и знак)
-//        if (i.length() < 2) {
-//            // Игнорирај ако е невалиден внес
-//            continue;
-//        }
+//		if(i.length()<2) {//игнорирај ако е невалиден влез
+//			continue;
+//		}
 		char boja=i.charAt(0);
 		char znak=i.charAt(1);
-		ArrayStack<String>stack=null;
-	
-	if(boja=='R') {
-		stack=crveni;
+		
+		//ЛОГИКА ЗА ЦРВЕНИ
+		if(boja=='R') {
+			if(!crveni.isEmpty()&&crveni.peek().charAt(1)!=znak) {//ако стекот crveni не 
+				//е празен и кога ѕиркаме на врвот од стекот не е исто со знакот т.е се
+				//знаците споротивни 
+				crveni.pop();
+				
+			}
+			else {
+				crveni.push(i);
+			}
+			
+		}
+		
+		//ЛОГИКА ЗА ЗЕЛЕНИ
+		if(boja=='G') {
+			if(!zeleni.isEmpty()&&zeleni.peek().charAt(1)!=znak) {//ако стекот zeleni не 
+				//е празен и кога ѕиркаме на врвот од стекот не е исто со знакот т.е се
+				//знаците споротивни 
+				zeleni.pop();
+				
+			}
+			else {
+				zeleni.push(i);
+			}
+			
+		}
+		
+		// ЛОГИКА ЗА СИНИ
+		if(boja=='B') {
+			if(!sini.isEmpty()&&sini.peek().charAt(1)!=znak) {//ако стекот sini не 
+				//е празен и кога ѕиркаме на врвот од стекот не е исто со знакот т.е се
+				//знаците споротивни 
+				sini.pop();
+				
+			}
+			else {
+				sini.push(i);
+			}
+			
+		}
+
+}
+	while(!crveni.isEmpty()) {
+		n++;
+		izlez.append(crveni.pop()+" ");
 	}
-	else if(boja=='G') {
-	stack=zeleni;
+	while(!sini.isEmpty()) {
+		n++;
+	izlez.append(sini.pop()+" ");
 	
 }
-	else if (boja=='B') {
-		stack=sini;
-	}
-	if(stack!=null) {
-		if(!stack.isEmpty()&&stack.peek().charAt(1)!=znak) {
-			stack.pop();
-		}
-		else {
-			stack.push(i);
-		}
-	}
+while(!zeleni.isEmpty()) {
+	n++;
+	izlez.append(zeleni.pop()+" ");
 }
-	   while (!crveni.isEmpty()) {
-           n++;
-           izlez.append(crveni.pop().charAt(1) == '+' ? "R- " : "R+ ");
-       }
+System.out.println(n);
+System.out.println(izlez);
+}
 
-       while (!zeleni.isEmpty()) {
-           n++;
-           izlez.append(zeleni.pop().charAt(1) == '+' ? "G- " : "G+ ");
-       }
 
-       while (!sini.isEmpty()) {
-           n++;
-           izlez.append(sini.pop().charAt(1) == '+' ? "B- " : "B+ ");
-       }
-
-       // Прво бројот на преостанати топчиња
-       System.out.println(n);
-       System.out.println(izlez);
-   }}
-	
-
+}
