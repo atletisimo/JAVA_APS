@@ -56,4 +56,10 @@ for (String i : t) {//t е низата, е тековниот елемент о
     System.out.println(i);//Петљата автоматски оди еден по еден низ сите елементи.
 }
 
+КЛАСИЧЕН FOR LOOP
+  for (int i = 0; i< t.length; i++) {
+    String a = t[i];  // земаме елемент по индекс
+    System.out.println(a);
+}
+
 
