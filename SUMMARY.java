@@ -42,3 +42,18 @@ System.out.println(izlez);
 String izlez = "";
 izlez = izlez + "R- ";
 izlez = izlez + "G+ ";
+
+
+ENHANCED FOR LOOP=FOR EACH
+  for (String i : t) {
+    ...
+}
+Се користи кога сакаш да поминеш низ сите елементи од една колекција (array, листа, сет, …).
+
+  пр:String[] t = {"R+", "G-", "G+", "B-"};
+
+for (String i : t) {//t е низата, е тековниот елемент од таа низа
+    System.out.println(i);//Петљата автоматски оди еден по еден низ сите елементи.
+}
+
+
