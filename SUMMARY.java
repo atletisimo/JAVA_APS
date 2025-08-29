@@ -12,3 +12,33 @@ Integer x = 5;
 int y = x;  // автоматски се претвора во int
 Ова е дозволено и ќе работи во твојот код.Значи, двете варијанти ќе функционираат.Но проблем е ако jazol.element == null, ќе добиеш NullPointerException,затоа е побезбедно да остане како Integer
 
+STRINGS vs STRINGBUILDER
+  Во Java, String е immutable (непроменлив).
+Тоа значи дека секојпат кога ќе „додадеш“ нешто на еден String, всушност се креира нов објект во меморија.
+
+  пр:String s = "";
+s = s + "A"; // креира нов String
+s = s + "B"; // пак креира нов String
+s = s + "C"; // пак креира нов String
+
+StringBuilder е mutable (променлив).
+Значи, кога користиш append(), тој ја менува внатрешната низа на карактери без да креира нов објект секојпат.
+
+StringBuilder sb = new StringBuilder();
+sb.append("A");
+sb.append("B");
+sb.append("C");
+System.out.println(sb.toString()); // ABC
+
+Ако користме обичен String, секој + би создавала нова копија → неефикасно.
+Со StringBuilder → сè се собира во еден ист објект и на крај само се печати
+
+  Со StringBuilder:
+
+System.out.println(izlez);
+
+Со обичен String, ќе мора:
+
+String izlez = "";
+izlez = izlez + "R- ";
+izlez = izlez + "G+ ";
