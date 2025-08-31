@@ -34,9 +34,16 @@ public class StackUreduvacTekst {
 
                 while (!temp.isEmpty()) {
                     String c = temp.pop();
+                    
+                /*Во стекот буквите се чуваат поединечно, и System.out.println(stack) не ги спојува автоматски.
+
+За да добиеш еден стринг со сите букви редоследно, мора да ги земеш од стекот и да ги споиш во една низа, било со String или со StringBuilder.
+
+                    */
                     sb.append(c);
                     stack.push(c); // врати го назад во оригиналниот стек
                 }
+
 
                 System.out.println(sb.toString());
             }
