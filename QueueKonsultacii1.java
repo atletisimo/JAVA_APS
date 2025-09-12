@@ -84,15 +84,34 @@ public class Konsultacii {
         int var = zaKratkiPrashanja.length + zaZadachi.length;
 
         for (int i = 0; i < var; i++) {
-            if (((flag == 1) || zaZadachi.isEmpty()) && !zaKratkiPrashanja.isEmpty()) {
+            if (((flag == 1) || zaZadachi.isEmpty()) && !zaKratkiPrashanja.isEmpty()) {//flag = 1 → на ред се студентите со кратки прашања
                 finalRed.enqueue(zaKratkiPrashanja.dequeue());
-                flag = 0;
+                flag = 0;//flag=0 на ред се студентите за задачи
             }
             if (((flag == 0) || zaKratkiPrashanja.isEmpty()) && !zaZadachi.isEmpty()) {
                 finalRed.enqueue(zaZadachi.dequeue());
-                flag = 1;
+                flag = 1;//Потоа ако пуштиме студент од редицата за задачи, го менуваме flag = 1, за следниот пат да пуштиме некој од редицата за кратки прашања.
             }
         }
+        /*
+Ред за кратки: [Ilinka, Igor, Magdalena, Hristina]
+Ред за задачи: [Anastas, Vladimir]
+flag = 1 на почеток.
+
+flag=1 → земаме Ilinka (кратки), ставаме flag=0.
+
+flag=0 → земаме Anastas (задачи), ставаме flag=1.
+
+flag=1 → земаме Igor (кратки), ставаме flag=0.
+
+flag=0 → земаме Vladimir (задачи), ставаме flag=1.
+
+flag=1 → земаме Magdalena (кратки), ставаме flag=0.
+
+Сега редицата за задачи е празна → условот zaZadachi.isEmpty() ќе биде true → продолжуваме само со кратки.
+
+
+        */
 
         int finalInt = finalRed.length;
         for (int i = 0; i < finalInt; i++) {
