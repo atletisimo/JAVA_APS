@@ -48,15 +48,15 @@ public class Konsultacii {
 
         int brFinal = brZaAps + brZaMmc;
         int flag = 1;//flag = 1 → ред е на студентите од АПС.
-        LinkedQueue<String> finalRed = new LinkedQueue<>();
-        String previousTip = "";
+        LinkedQueue<String> finalRed = new LinkedQueue<>();//finalRed — редицата во која ги прибираме студентите по редоследот како што влегуваат
+        String previousTip = "";//го чува типот на последното одговорено прашање од АПС (A/B/C/D). Почетно е "" (празен) затоа што пред старт немало претходно прашање.
 
         for (int i = 0; i < brFinal; i++) {
             if (((flag == 1) || prashanjaMMC.isEmpty()) && (!prashanjaAPS.isEmpty())) {
-                String[] parts = prashanjaAPS.peek().split(" ");
+                String[] parts = prashanjaAPS.peek().split(" ");//гледаме (без да ја тргнеме) првата ставка во редот на АПС.
                 String name = parts[0];
                 String tip = parts[1];
-                if (previousTip.equals(tip) && (!prashanjaMMC.isEmpty())) {
+                if (previousTip.equals(tip) && (!prashanjaMMC.isEmpty())) {//Ова проверува дали типот на ова прашање е ИСТ како типот на последно одговореното прашање и дали има барем еден студент во ММС.
                     prashanjaAPS.enqueue(prashanjaAPS.dequeue());
                     flag = 0;//flag = 0 → ред е на студентите од ММС.
                     previousTip = tip;
