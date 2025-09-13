@@ -63,7 +63,10 @@ public class Asistenti {
         }
 
         int brOtsutniProf = Integer.parseInt(sc.nextLine());
-        ArrayList<String> otsutniList = new ArrayList<>();
+        ArrayList<String> otsutniList = new ArrayList<>();//Во условот од задачата се вели дека прво се дава бројот на отсутни асистенти,
+     //па потоа се внесуваат имињата.→ Тоа значи дека од почеток точно знаеме колку елементи има.
+     //Ако однапред ја знаеш должината, сосема е во ред да користиш обична низа. String[] otsutniArr = new String[brOtsutniProf];
+
 
         for (int i = 0; i < brOtsutniProf; i++) {
             otsutniList.add(sc.nextLine());
@@ -95,3 +98,25 @@ public class Asistenti {
         sc.close();
     }
 }
+
+/*
+
+Со низа мораш вака да проверуваш:
+
+boolean isAbsent = false;
+for (int i = 0; i < otsutniArr.length; i++) {
+    if (otsutniArr[i].equals(asistent)) {
+        isAbsent = true;
+        break;
+    }
+}
+
+
+Со листа е пократко:
+
+if (otsutniList.contains(asistent)) {
+    // отсутен е
+}
+
+
+*/
