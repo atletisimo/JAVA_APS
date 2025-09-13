@@ -118,7 +118,7 @@ public class QueueKolokviumI {
         // Филтрирање на присутни асистенти
         while (!asistenti.isEmpty()) {
             String current = asistenti.dequeue();
-            boolean isOtsuten = false;
+            boolean isOtsuten = false;//секој асистент се проверува независно од другите,затоа e внатре во while,isOtsuten мора да биде внатре во while за да се ресетира при секој нов асистент.
             for (int i = 0; i < brOtsutni; i++) {
                 if (current.contains(otsutni[i])) {
                     isOtsuten = true;
