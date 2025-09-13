@@ -73,7 +73,7 @@ public class Asistenti {
         }
 
         LinkedQueue<String> asistentiFinal = new LinkedQueue<>();
-
+//Со ова добиваме "чиста" редица само со присутните асистенти.
         while (!asistenti.isEmpty()) {
             String curr = asistenti.dequeue();
             if (!otsutniList.contains(curr)) {
@@ -89,6 +89,8 @@ public class Asistenti {
             System.out.println(imePredmet);
             System.out.println(potrebniAsistenti);
 
+         //for циклусот е тука за да:Избере точно онолку асистенти колку што бара предметот.
+        //По секое избирање, да го ротира асистентот на крај → така сите редоследно добиваат предмети
             for (int i = 0; i < potrebniAsistenti; i++) {
                 System.out.println(asistentiFinal.peek());
                 asistentiFinal.enqueue(asistentiFinal.dequeue());
