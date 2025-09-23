@@ -37,7 +37,26 @@
 import java.util.*;
 public class DLLZigZag{
   public static void main(String [] args){
-Scanner input=
-
-
+Scanner input=new Scanner(System.in);
+    int n=input.nextInt();
+    DLL<Integer>lista=new DLL<Integer>();
+    for(int i=0;i<n;i++){
+lista.insertLast(input.nextInt());
+    }
+DLLNode<Integer>jazol=lista.getFirst();
+    boolean eRastecki=true;
+    while(jazol!=null&jazol.succ!=null){
+if(eRastecki){
+if(jazol.element>=jazol.succ.element){
+  lista.delete(jazol.succ);
+  continue;
+}
+  else{
+    if(jazol.element<=jazol.succ.element){
+      lista.delete(jazol.succ);
+      continue;
   }}
+    jazol=jazol.succ;
+  eRastecki=!eRastecki;
+
+  System.out.println(lista);}}
