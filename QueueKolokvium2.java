@@ -122,3 +122,53 @@ break ја прекинува САМО највнатрешната петља �
         }}
 
 }
+
+/*
+Почетен ред (редослед во konecenRaspored):
+[Ilinka, Vladimir, Slobodan, Anastas, Igor, Magdalena, Hristina]
+(капацитет kapacitetTermin = 2)
+
+Итерација 1 (term = 1):
+
+Печати 1 (поради System.out.println(term++)).
+
+Внатрешен for (j=0..1):
+
+j=0: dequeue() → излегува Ilinka (печати Ilinka)
+
+j=1: dequeue() → излегува Vladimir (печати Vladimir)
+
+Ред сега: [Slobodan, Anastas, Igor, Magdalena, Hristina]
+
+Итерација 2 (term = 2):
+
+Печати 2.
+
+dequeue() → Slobodan
+
+dequeue() → Anastas
+
+Ред: [Igor, Magdalena, Hristina]
+
+Итерација 3 (term = 3):
+
+Печати 3.
+
+dequeue() → Igor
+
+dequeue() → Magdalena
+
+Ред: [Hristina]
+
+Итерација 4 (term = 4):
+
+Печати 4.
+
+Внатрешниот for: j=0 → dequeue() → Hristina
+
+j=1: услов !konecenRaspored.isEmpty() е false (ред е празен) па for завршува.
+
+Ред сега празен → надворешниот while завршува.
+
+
+*/
